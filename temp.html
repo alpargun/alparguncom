@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" href="icons/logo_AA.png" type="image/icon type">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Alp Argun</title>
+
+    <!-- CSS Files -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+    <link href="tempstyle.css" rel="stylesheet">
+
+    <!-- JavaScript Files -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script defer src="tempscript.js"></script>
+
+</head>
+
+<body onload="startTime()">
+
+    <!-- Navbar Starts -->
+
+    <nav class="navbar navbar-expand navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+
+            <div class="navbar-nav ml-4 mr-auto mt-lg-0">
+                <span class="navbar-text" id="logo">AA</span> <span class="navbar-text" id="name">Alp Argun</span>
+            </div>
+
+            <div class="navbar-nav mr-4">
+                <span class="navbar-text">
+                    <i class="fas fa-wifi"></i>
+                </span>
+                <span class="navbar-text" id="clock"></span>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </nav>
+
+    <!-- Navbar Ends -->
+
+    <!-- WRAP Starts -->
+
+    <div class="wrap">
+
+        <!-- Start MODAL POPUP -->
+
+        <div class="container">
+
+            <!-- Start About Me Modal -->
+
+            <div class="modal fade" id="modal-about-me">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">about_me.txt</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                I am an electrical and computer engineer based in Aachen, Germany. I am passionate about
+                                machine learning and my current interest fields are deep learning and image processing.
+                            </p>
+
+                            <p>
+                                I am currently an M.Sc. student in electrical and computer engineering and a student research assistant at RWTH Aachen University.
+                            </p>
+
+                            <p>
+                                Aside from my work and studies, I make music. I play the guitar and the piano and I make beats on Ableton Live for fun. You can find samples of my music on desktop.
+                            </p>
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End About Me Modal -->
+
+            <!-- Start Projects Modal -->
+
+            <div class="modal fade" id="modal-projects">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">projects.txt</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h1 class="mb-3">Recent Projects</h1>
+
+                            <!-- ICE -->
+                            <h3>Autonomous Driving</h3>
+                            <p class="font-italic text-muted mb-1">
+                                reinforcement learning, deep learning, python
+                            </p>
+                            <p class="mb-3">
+                                I am currently working on an autonomous driving project at <a
+                                    href="https://www.ice.rwth-aachen.de/" target="__blank">ICE - RWTH</a>, and working
+                                with deep learning and reinforcement
+                                learning algorithms to train agents on <a href="https://gym.openai.com/"
+                                    target="__blank">OpenAI Gym</a> environments.
+                            </p>
+
+                            <!-- IAM -->
+                            <h3>Bioreactor Control Software</h3>
+                            <p class="font-italic text-muted mb-1">
+                                multiprocessing, threading, python
+                            </p>
+                            <p class="mb-3">
+                                I did A Raspberry Pi project to control a bioreactor for <a
+                                    href="http://www.iam.rwth-aachen.de/en" target="__blank">IAM - RWTH</a>, in which a
+                                motor is controlled to stimulate the cells and at
+                                the same time, the force is measured and plotted in real-time. I also implemented a user
+                                interface for experiment configuration.
+                            </p>
+
+                            <!-- ISEA -->
+                            <h3>Process Automation</h3>
+                            <p class="font-italic text-muted mb-1">
+                                python, mysql
+                            </p>
+                            <p class="mb-3">
+                                I automated the extraction and manipulation of battery test data for <a
+                                    href="https://www.isea.rwth-aachen.de/go/id/ojnv/?lidx=1" target="__blank">ISEA -
+                                    RWTH</a>.
+                            </p>
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End Projects Modal -->
+
+            <!-- Start README Modal -->
+
+            <div class="modal fade" id="modal-read-me">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">README.txt</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                I first created this website in May 2020. Source code is on my <a href="https://github.com/alpargun" target="__blank">GitHub</a>.
+                            </p>
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End README Modal -->
+
+            <!-- Start MP3 Modal -->
+
+            <!-- Sample 1 -->
+            <div class="modal fade" id="modal-song1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">my_song1.mp3</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <audio controls>
+                                <source src="files/audio/dark.mp3" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- Sample 2 -->
+            <div class="modal fade" id="modal-song2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">my_song2.mp3</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <audio controls>
+                                <source src="files/audio/462.mp3" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio>
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End MP3 Modal -->
+
+            <!-- Start Image 1 Modal -->
+
+            <div class="modal fade" id="modal-jpg-alp1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">alp1.jpg</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="files/photos/alp.jpg">
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End Image 1 Modal -->
+
+            <!-- Start Image 2 Modal-->
+
+            <div class="modal fade" id="modal-jpg-alp2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">alp2.jpg</h5>
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="files/photos/alp2.jpg">
+                        </div>
+                    </div> <!-- end modal-content -->
+                </div> <!-- end modal-dialog-->
+            </div> <!-- end modal -->
+
+            <!-- End Image 2 Modal -->
+
+            <!-- END MODAL -->
+
+        </div>
+
+        <!-- START DESKTOP -->
+
+        <div class="dragZone">
+
+            <!-- PDF File -->
+
+            <div class="pdf" id="cv">
+                <a href="#modal-cv">
+                    <img src="files/icons/pdf2.png">
+                </a>
+                <div class="file-name">
+                    CV_AlpArgun.pdf
+                </div>
+            </div>
+
+            <!-- Txt File -->
+
+            <!-- About Me -->
+            <div class="txt" id="about-me">
+                <a href="#modal-about-me">
+                    <img src="files/icons/txt.png">
+                </a>
+                <div class="file-name">
+                    about_me.txt
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="txt" id="projects">
+                <img src="files/icons/txt.png">
+                <div class="file-name">
+                    projects.txt
+                </div>
+            </div>
+
+            <!-- About Me -->
+            <div class="txt" id="read-me">
+                <a href="#modal-read-me">
+                    <img src="files/icons/txt.png">
+                </a>
+                <div class="file-name">
+                    README.txt
+                </div>
+            </div>
+
+            <!-- JPG Files -->
+
+            <!-- image 1 -->
+            <div class="jpg" id="jpg-alp1" alt="alp1">
+                <a href="#modal-jpg-alp1">
+                    <img src="files/photos/alp.jpg">
+                </a>
+                <div class="file-name">
+                    alp1.jpg
+                </div>
+            </div>
+            <!-- image 2 -->
+            <div class="jpg" id="jpg-alp2" alt="alp2">
+                <a href="#modal-jpg-alp2">
+                    <img src="files/photos/alp2.jpg">
+                </a>
+                <div class="file-name">
+                    alp2.jpg
+                </div>
+            </div>
+
+            <!-- Audio Files -->
+
+            <!-- Song 1 -->
+            <div class="mp3" id="song1">
+                <a href="#modal-song1">
+                    <img src="files/icons/mp3.png">
+                </a>
+                <div class="file-name">
+                    my_song1.mp3
+                </div>
+            </div>
+            <!-- Song 2 -->
+            <div class="mp3" id="song2">
+                <a href="#modal-song2">
+                    <img src="files/icons/mp3.png">
+                </a>
+                <div class="file-name">
+                    my_song2.mp3
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- END DESKTOP -->
+
+    <!-- START FOOTER -->
+
+    <!-- Footer -->
+    <!-- <footer class="page-footer font-small"> -->
+    <footer class="navbar navbar-expand navbar-inverse navbar-static-bottom" id="footer">
+
+        <!-- Footer Links -->
+        <div class="container-fluid justify-content-center">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-sm-12 my-auto align-items-center" id="social">
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/alpargun" target="_blank" class="social-icons" id="instagram">
+                        <img src="files/icons/instagram.png">
+                    </a>
+                    <!-- Facebook -->
+                    <a href=https://facebook.com/alppargun target="_blank" class="social-icons" id="facebook">
+                        <img src="files/icons/facebook.png">
+                    </a>
+                    <!-- Twitter -->
+                    <a href="https://twitter.com/argunalp" target="_blank" class="social-icons" id="twitter">
+                        <img src="files/icons/twitter.png">
+                    </a>
+                    <!-- LinkedIn -->
+                    <a href="https://linkedin.com/in/alpargun" target="_blank" class="social-icons" id="linkedin">
+                        <img src="files/icons/linkedin.png">
+                    </a>
+                    <!-- GitHub -->
+                    <a href="https://github.com/alpargun" target="_blank" class="social-icons" id="github">
+                        <img src="files/icons/github.png">
+                    </a>
+                    <!-- Mail -->
+                    <a href="mailto:alpargun@gmail.com" target="_blank" class="social-icons" id="mail">
+                        <img src="files/icons/gmail.png">
+                    </a>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Links -->
+
+    </footer>
+    <!-- Footer -->
+
+    <!-- END FOOTER -->
+
+</body>
+
+</html>

@@ -1,0 +1,359 @@
+@import url(http://allfont.net/allfont.css?fonts=lucida-sans-unicode);
+
+
+* {box-sizing: border-box;}
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: auto;
+    font-family: 'Lucida Sans Unicode', arial;
+  }
+
+/* Start Navbar */
+
+.navbar {
+  padding: 0;
+  margin: 0;
+  height: 5%;
+  background-color: black;
+  opacity: 0.92;
+}
+
+.navbar .navbar-text{
+  color: white;
+  font-size: 22px;
+}
+
+#name {
+  margin-left: 22px;
+  transition: all .2s ease-in-out;
+}
+
+#name:hover {
+  transform: scale(1.25);
+}
+
+#logo {
+  transition: all .2s ease-in-out;
+  color: white;
+}
+
+#logo:hover {
+  transform: scale(1.25);
+}
+
+#clock {
+  margin-left: 20px;
+}
+
+/* Begin draggable desktop icons */
+
+.wrap{
+    height: 88%;
+    background-color: black;
+}
+
+.dragZone {
+  height: 99%;
+}
+
+.pdf, .txt, .folder, .jpg, .mp3 {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 0;
+    margin-bottom: 10px;
+}
+
+.pdf img, .txt img, .folder img, .mp3 img, .jpg img:hover {
+    cursor: move;
+}
+
+/* PDF File */
+
+.pdf {
+    top: 10%;
+    left: 5%;
+    cursor: move;
+}
+
+.pdf img {
+    height: 100%;
+    width: 100%;
+}
+
+/* TXT File */
+
+.txt {
+  cursor: move;
+}
+
+#about-me {
+    top: 10%;
+    left: 35%;
+}
+
+#projects {
+    top: 10%;
+    left: 65%;
+}
+
+#read-me {
+  top: 70%;
+  left: 5%;
+}
+
+.txt img {
+    height: 100%;
+    width: 100%;
+}
+
+/* JPG Files */
+
+.jpg {
+  cursor: move;
+}
+
+.jpg img{
+    width: 100%;
+    height: 80%;
+    margin-bottom: 10%;
+}
+
+#jpg-alp1 {
+  top: 30%;
+  left: 5%;
+}
+
+#jpg-alp2 {
+    top: 30%;
+    left: 35%;
+}
+
+/* MP3 File */
+
+.mp3 {
+    cursor: move;
+}
+
+.mp3 img {
+  height: 100%;
+  width: 100%;
+}
+
+#song1 {
+  top: 50%;
+  left: 5%;
+}
+
+#song2 {
+  top: 50%;
+  left: 35%;
+}
+
+
+
+.dragZone .file-name {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 100%;
+}
+
+/* End draggables */
+
+
+/* Start Modal Popups */
+
+#modal-projects .font-italic{
+  font-size: 14px;
+  /* margin-bottom: 0px; */
+}
+
+#modal-jpg-alp1 img{
+  width: 100%
+}
+
+#modal-jpg-alp2 img{
+  width: 100%
+}
+
+.close {
+  font-size: 30px;
+}
+
+/* End Bootstrap Modals */
+
+
+/* Start Footer */
+
+#footer {
+  position: relative;
+  height: 7%;
+  background-color: black;
+  opacity: 0.92;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+  z-index: 200;
+}
+
+#social{
+  text-align: center;
+}
+
+#social img {
+  width: 36px;
+  /* height: 36px; */
+  /* margin-top: 1%; */
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: all .2s ease-in-out;
+  z-index: 300;
+}
+
+/* End Footer */
+
+
+/* ************************************* */
+/* RESPONSIVITY */
+
+/* Start Responsivity Fix */
+
+/* Max Width = 991 px */
+@media(max-width: 991px){
+
+  .dragZone .file-name {
+    color: white;
+    text-align: center;
+    font-weight: 400;
+    font-size: 100%;
+  }
+
+}
+
+/* Max Width = 767 px */
+@media(max-width: 767px){
+
+  .navbar .navbar-text{
+    font-size: 16px;
+  }
+
+  #name {
+    margin-left: 16px;
+  }
+
+  .dragZone .file-name {
+    font-size: 90%;
+    margin-top: 8px;
+  }
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 10px;
+  }
+
+}
+
+/* Max Width = 500 px */
+@media(max-width: 500px){
+
+  .navbar .navbar-text{
+    font-size: 16px;
+  }
+
+  #name {
+    margin-left: 16px;
+  }
+
+  .dragZone .file-name {
+    font-size: 65%;
+    margin-top: 6px;
+  }
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 10px;
+  }
+
+  #social img {
+    width: 26px;
+    margin-left: 7px;
+    margin-right: 7px;
+  }
+ 
+}
+
+/* Max Height = 420 px (e.g. Phone sideways) */
+@media(max-height: 420px){
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 10px;
+  }
+
+  .dragZone .file-name {
+    font-size: 55%;
+    margin-top: 4px;
+  }
+
+  #social img {
+    width: 14px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+}
+
+/* Max Width = 500 px (e.g. iPhone SE) */
+@media(max-width: 320px){
+
+  .navbar .navbar-text{
+    font-size: 13px;
+  }
+
+  #name {
+    margin-left: 15px;
+  }
+
+  .dragZone .file-name {
+    font-size: 55%;
+    margin-top: 4px;
+  }
+
+  #social img {
+    width: 24px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+}
+
+/* Max Height = 320 px (e.g. iPhone SE sideways) */
+@media(max-height: 320px){
+
+  .navbar .navbar-text{
+    font-size: 12px;
+  }
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+  }
+
+  .dragZone .file-name {
+    font-size: 55%;
+    margin-top: 4px;
+  }
+
+  #social img {
+    width: 14px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+}
