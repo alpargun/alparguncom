@@ -1,19 +1,35 @@
-@import url(http://allfont.net/allfont.css?fonts=lucida-sans-unicode);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+@font-face {
+  font-family: lucida;
+  src: url(files/lucida-sans-unicode.ttf);
+}
 
-* {box-sizing: border-box;}
+@font-face {
+  font-family: lucida;
+  src: url(files/lucida-sans-unicode.ttf);
+  font-weight: bold;
+}
 
-  html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    overflow: auto;
-    font-family: 'Lucida Sans Unicode', arial;
-  }
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: auto;
+  /* font-family: 'Lucida Sans Unicode', arial; */
+  font-family: lucida, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, 'arial';
+}
+
+/* -------------------------------------------------------------------------------------- */
 
 /* Start Navbar */
 
-.navbar {
+#navbar {
+  z-index: 100;
   padding: 0;
   margin: 0;
   height: 5%;
@@ -48,6 +64,30 @@
   margin-left: 20px;
 }
 
+/* End navbar */
+
+/* -------------------------------------------------------------------------------------- */
+
+/* Begin animated background */
+
+/* The element to apply the animation to */
+
+#canvas1 {
+  position: absolute;
+  /* top: 0; */
+  left: 0;
+  width: 100%;
+  height: 88%;
+  background: radial-gradient(#1d1d1d ,#0a0a0a );
+  /* background-color: black; */
+  z-index: 0;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+/* -------------------------------------------------------------------------------------- */
+
 /* Begin draggable desktop icons */
 
 .wrap{
@@ -59,12 +99,20 @@
   height: 99%;
 }
 
+.dragZone .file-name {
+  color: white;
+  text-align: center;
+  font-weight: 400;
+  font-size: 100%;
+  margin-top: 0.25rem;
+}
+
 .pdf, .txt, .folder, .jpg, .mp3 {
     width: 100px;
     height: 100px;
     position: absolute;
     z-index: 0;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .pdf img, .txt img, .folder img, .mp3 img, .jpg img:hover {
@@ -153,17 +201,9 @@
   left: 35%;
 }
 
-
-
-.dragZone .file-name {
-  color: white;
-  text-align: center;
-  font-weight: 400;
-  font-size: 100%;
-}
-
 /* End draggables */
 
+/* -------------------------------------------------------------------------------------- */
 
 /* Start Modal Popups */
 
@@ -186,6 +226,7 @@
 
 /* End Bootstrap Modals */
 
+/* -------------------------------------------------------------------------------------- */
 
 /* Start Footer */
 
@@ -214,20 +255,33 @@
 
 /* End Footer */
 
+/* -------------------------------------------------------------------------------------- */
 
 /* ************************************* */
-/* RESPONSIVITY */
+/* RESPONSIVENESS */
 
-/* Start Responsivity Fix */
+/* Start Responsiveness Fix */
 
-/* Max Width = 991 px */
-@media(max-width: 991px){
+/* Max Width */
+
+/* Max Width = 1024 px */
+@media(max-width: 1024px){
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 28px;
+  }
+
+  #social img {
+    width: 36px;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
 
   .dragZone .file-name {
-    color: white;
-    text-align: center;
-    font-weight: 400;
-    font-size: 100%;
+    font-size: 90%;
+    margin-top: 15px;
   }
 
 }
@@ -249,9 +303,15 @@
   }
 
   .pdf, .txt, .folder, .jpg, .mp3 {
-    width: 75px;
-    height: 75px;
-    margin-bottom: 10px;
+    width: 85px;
+    height: 85px;
+    margin-bottom: 20px;
+  }
+
+  #social img {
+    width: 34px;
+    margin-left: 9px;
+    margin-right: 9px;
   }
 
 }
@@ -286,27 +346,6 @@
  
 }
 
-/* Max Height = 420 px (e.g. Phone sideways) */
-@media(max-height: 420px){
-
-  .pdf, .txt, .folder, .jpg, .mp3 {
-    width: 55px;
-    height: 55px;
-    margin-bottom: 10px;
-  }
-
-  .dragZone .file-name {
-    font-size: 55%;
-    margin-top: 4px;
-  }
-
-  #social img {
-    width: 14px;
-    margin-left: 6px;
-    margin-right: 6px;
-  }
-
-}
 
 /* Max Width = 500 px (e.g. iPhone SE) */
 @media(max-width: 320px){
@@ -319,13 +358,46 @@
     margin-left: 15px;
   }
 
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+  }
+
+  .dragZone .file-name {
+    font-size: 50%;
+    margin-top: 4px;
+  }
+
+  #social img {
+    width: 24px;
+    margin-left: 6px;
+    margin-right: 6px;
+  }
+
+}
+
+/* ---------------------------------------------------------------- */
+
+/* Max Height */
+
+
+/* Max Height = 420 px (e.g. Phone sideways) */
+@media(max-height: 420px){
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
   .dragZone .file-name {
     font-size: 55%;
     margin-top: 4px;
   }
 
   #social img {
-    width: 24px;
+    width: 14px;
     margin-left: 6px;
     margin-right: 6px;
   }
@@ -340,8 +412,8 @@
   }
 
   .pdf, .txt, .folder, .jpg, .mp3 {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 10px;
   }
 
@@ -354,6 +426,32 @@
     width: 14px;
     margin-left: 6px;
     margin-right: 6px;
+  }
+
+}
+
+/* Min Height = 1200 px (e.g. iPad Pro (12.9") */
+@media(min-height: 1200px){
+
+  .navbar .navbar-text{
+    font-size: 32px;
+  }
+
+  .pdf, .txt, .folder, .jpg, .mp3 {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 30px;
+  }
+
+  .dragZone .file-name {
+    font-size: 130%;
+    margin-top: 14px;
+  }
+
+  #social img {
+    width: 48px;
+    margin-left: 18px;
+    margin-right: 18px;
   }
 
 }
