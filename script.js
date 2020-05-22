@@ -1,4 +1,4 @@
-// ----------------------------------------------------------------------
+// ****************************************************************************
 
 // Draggable Files Starts
 
@@ -34,10 +34,17 @@ $(document).ready(function () {
 // Click/Drag Starts
 
 // Click on Desktop Icons - Distinguish betweem drag and click
+let zIndex = 10;
 
-// PDF ------------------------------------------------------------------
+let hNav = document.querySelector('nav').clientHeight;
+let hFooter = document.querySelector('footer').clientHeight;
+let hBoundary = document.querySelector('.dragZone').clientHeight;
+let wBoundary = document.querySelector('.dragZone').clientWidth;
 
-// CV
+// PDF files *************************************************************
+
+
+// CV --------------------------------------------------------------------
 $('#cv').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
 }).on('mouseup', function (event) {
@@ -49,10 +56,67 @@ $('#cv').on('mousedown', function () {
     window.open("files/AlpArgun_CV.pdf", '_blank');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var cv_icon = $('#cv');
+// Touch Start
+cv_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+cv_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
 
-// TXT ------------------------------------------------------------------
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.pdf').clientWidth;
+  let offsetY = document.querySelector('.pdf').clientHeight;
 
-// About Me
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > wBoundary - offsetX) {
+    $(this).css("left", screen.width - offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+cv_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    window.open("files/AlpArgun_CV.pdf", '_blank');
+  }
+});
+// End touch screen support
+// ---------------------------------------------------------------------------
+// ***************************************************************************
+
+// TXT files *****************************************************************
+
+// About Me ------------------------------------------------------------------
 
 $('#about-me').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
@@ -65,8 +129,66 @@ $('#about-me').on('mousedown', function () {
     $('#modal-about-me').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var about_icon = $('#about-me');
+// Touch Start
+about_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+about_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
 
-// Projects 
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.txt').clientWidth;
+  let offsetY = document.querySelector('.txt').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width - offsetX) {
+    $(this).css("left", screen.width - offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+about_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-about-me').modal('show');
+  }
+});
+// End touch screen support
+// ----------------------------------------------------------------------------
+
+// Projects  ------------------------------------------------------------------
 
 $('#projects').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
@@ -79,8 +201,65 @@ $('#projects').on('mousedown', function () {
     $('#modal-projects').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var projects_icon = $('#projects');
+// Touch Start
+projects_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+projects_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
 
-// README
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.txt').clientWidth;
+  let offsetY = document.querySelector('.txt').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width - offsetX) {
+    $(this).css("left", screen.width - offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+projects_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+
+    $('#modal-projects').modal('show');
+  }
+});
+
+// README ---------------------------------------------------------------------
 
 $('#read-me').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
@@ -93,13 +272,72 @@ $('#read-me').on('mousedown', function () {
     $('#modal-read-me').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var readme_icon = $('#read-me');
+// Touch Start
+readme_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+readme_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
 
-// MP3 ------------------------------------------------------------------
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.txt').clientWidth;
+  let offsetY = document.querySelector('.txt').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width - offsetX) {
+    $(this).css("left", screen.width - offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+readme_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-read-me').modal('show');
+  }
+});
+// End touch screen support
+// -------------------------------------------------------------------------------
+
+
+// MP3 files *********************************************************************
 
 song1 = $("#modal-song1 audio");
 song2 = $("#modal-song2 audio");
 
-// Song 1
+// Song 1 -------------------------------------------------------------------------
 $('#song1').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
 }).on('mouseup', function (event) {
@@ -111,24 +349,74 @@ $('#song1').on('mousedown', function () {
     $('#modal-song1').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var song1_icon = $('#song1');
+// Touch Start
+song1_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+song1_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
+
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.mp3').clientWidth;
+  let offsetY = document.querySelector('.mp3').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width-offsetX) {
+    $(this).css("left", screen.width-offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+song1_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-song1').modal('show');
+  }
+});
+// End touch screen support
 
 // Play the song automatically when the modal is opened
 $('#modal-song1').on('show.bs.modal', function () {
   $("#modal-song1 audio").each(function () {
     //this.currentTime = 0; // Reset time
-    this.play(); // Stop playing
+    this.play(); // Start playing
   });
 })
+// ------------------------------------------------------------------------------
 
-// Stop audio when modal is closed
-// $('#modal-song1').on('hide.bs.modal', function () {
-//   $("#modal-song1 audio").each(function () {
-//     this.pause(); // Stop playing
-//     this.currentTime = 0; // Reset time
-//   });
-// })
-
-// Song 2
+// Song 2 -------------------------------------------------------------------------
 $('#song2').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
 }).on('mouseup', function (event) {
@@ -140,22 +428,80 @@ $('#song2').on('mousedown', function () {
     $('#modal-song2').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var song2_icon = $('#song2');
+// Touch Start
+song2_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+song2_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
+
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.txt').clientWidth;
+  let offsetY = document.querySelector('.txt').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width-offsetX) {
+    $(this).css("left", screen.width-offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+song2_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-song2').modal('show');
+  }
+});
+// End touch screen support
 
 // Play the song automatically when the modal is opened
 $('#modal-song2').on('show.bs.modal', function () {
   $('#modal-song2 audio').each(function () {
     //this.currentTime = 0; // Reset time
-    this.play(); // Stop playing
+    this.play(); // Start playing
   });
 })
+// ------------------------------------------------------------------------------
 
-// Stop audio when modal is closed
-// $('#modal-song2').on('hide.bs.modal', function () {
-//   $('#modal-song2 audio').each(function () {
-//     this.pause(); // Stop playing
-//     this.currentTime = 0; // Reset time
-//   });
-// })
+// Audio settings ---------------------------------------------------------------
+// Pause audio when window is not on focus
+window.onblur = function () {
+  $('audio').each(function () {
+    this.pause(); // Stop playing
+  });
+};
 
 // Automatically stop other audio when an audio is played
 document.addEventListener('play', function (e) {
@@ -168,10 +514,11 @@ document.addEventListener('play', function (e) {
   }
 }, true);
 
+// -------------------------------------------------------------------------------
 
-// JPG ------------------------------------------------------------------
+// JPG files *********************************************************************
 
-// Image 1
+// Image 1 -----------------------------------------------------------------------
 $('#jpg-alp1').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
 }).on('mouseup', function (event) {
@@ -183,8 +530,67 @@ $('#jpg-alp1').on('mousedown', function () {
     $('#modal-jpg-alp1').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var jpg1_icon = $('#jpg-alp1');
+// Touch Start
+jpg1_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
 
-// Image 2
+});
+// Touch Move
+jpg1_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
+
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.jpg').clientWidth;
+  let offsetY = document.querySelector('.jpg').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
+
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width-offsetX) {
+    $(this).css("left", screen.width-offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
+
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+jpg1_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-jpg-alp1').modal('show');
+  }
+});
+// End touch screen support
+// -------------------------------------------------------------------------------
+
+// Image 2 -----------------------------------------------------------------------
 $('#jpg-alp2').on('mousedown', function () {
   $(this).data('p0', { x: event.pageX, y: event.pageY });
 }).on('mouseup', function (event) {
@@ -196,12 +602,71 @@ $('#jpg-alp2').on('mousedown', function () {
     $('#modal-jpg-alp2').modal('show');
   }
 });
+// Start touch screen support
+var ts_x;
+var ts_y;
+var jpg2_icon = $('#jpg-alp2');
+// Touch Start
+jpg2_icon.bind('touchstart', function (e) {
+  e.preventDefault();
+  // get the location of the first touch
+  ts_x = e.originalEvent.touches[0].clientX;
+  ts_y = e.originalEvent.touches[0].clientY;
+  $(this).css('z-index', zIndex++);
+});
+// Touch Move
+jpg2_icon.bind('touchmove', function (e) {
+  newX = e.originalEvent.touches[0].clientX;
+  newY = e.originalEvent.touches[0].clientY;
 
-//  Click/Drag Ends
+  // Prevent dragging out of bounds
+  let offsetX = document.querySelector('.jpg').clientWidth;
+  let offsetY = document.querySelector('.jpg').clientHeight;
+  let hNav = document.querySelector('nav').clientHeight;
+  let hFooter = document.querySelector('footer').clientHeight;
 
-// ----------------------------------------------------------------------
+  // Set x position
+  if (e.originalEvent.touches[0].clientX < 0) {
+    $(this).css("left", 0);
+  }
+  else if (e.originalEvent.touches[0].clientX > screen.width-offsetX) {
+    $(this).css("left", screen.width-offsetX);
+  }
+  else {
+    $(this).css("left", newX - offsetX / 2);
+  }
 
-// Time and Day Starts
+  // Set y position
+  if (e.originalEvent.touches[0].clientY < 0 + hNav) {
+    $(this).css("top", 0 + hNav);
+  }
+  else if (e.originalEvent.touches[0].clientY > hBoundary - offsetY) {
+    $(this).css("top", hBoundary - offsetY);
+  }
+  else {
+    $(this).css("top", newY - offsetY / 2);
+  }
+});
+// Touch End
+jpg2_icon.bind('touchend', function (e) {
+  var te_x = e.originalEvent.changedTouches[0].clientX;
+  var te_y = e.originalEvent.changedTouches[0].clientY;
+
+  dist = Math.sqrt(Math.pow(te_x - ts_x, 2) + Math.pow(te_y - ts_y, 2));
+
+  if (dist < 4) { // distinguish between drag and click
+    $('#modal-jpg-alp2').modal('show');
+  }
+});
+
+// End touch screen support
+// -----------------------------------------------------------------------------------
+
+//  Click/Drag Ends ******************************************************************
+
+// ***********************************************************************************
+
+// Dynamic Time and Day Starts
 
 // Show time and day dynamically on the navbar
 function startTime() {
