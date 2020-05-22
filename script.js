@@ -1,6 +1,6 @@
 // ****************************************************************************
 
-// Draggable Files Starts
+// Drag & Drop Starts
 
 $(document).ready(function () {
   var a = 3;
@@ -26,8 +26,6 @@ $(document).ready(function () {
     $(this).css("z-index", a++);
   });
 });
-
-// Draggable Files Section Ends
 
 // ----------------------------------------------------------------------
 
