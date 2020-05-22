@@ -78,7 +78,7 @@
             <!-- Start About Me Modal -->
 
             <div class="modal fade" id="modal-about-me">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">about_me.txt</h5>
@@ -91,11 +91,13 @@
                             </p>
 
                             <p>
-                                I am currently an M.Sc. student in electrical and computer engineering and a student research assistant at RWTH Aachen University.
+                                I am currently an M.Sc. student in electrical and computer engineering and a student
+                                research assistant at RWTH Aachen University.
                             </p>
 
                             <p>
-                                Aside from my work and studies, I make music. I play the guitar and the piano and I make beats on Ableton Live for fun. You can find samples of my music on desktop.
+                                Aside from my work and studies, I make music. I play the guitar and the piano and I make
+                                beats on Ableton Live for fun. You can find samples of my music on desktop.
                             </p>
                         </div>
                     </div> <!-- end modal-content -->
@@ -107,7 +109,7 @@
             <!-- Start Projects Modal -->
 
             <div class="modal fade" id="modal-projects">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-scrollable modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">projects.txt</h5>
@@ -152,6 +154,7 @@
                                     href="https://www.isea.rwth-aachen.de/go/id/ojnv/?lidx=1" target="__blank">ISEA -
                                     RWTH</a>.
                             </p>
+
                         </div>
                     </div> <!-- end modal-content -->
                 </div> <!-- end modal-dialog-->
@@ -162,7 +165,7 @@
             <!-- Start README Modal -->
 
             <div class="modal fade" id="modal-read-me">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">README.txt</h5>
@@ -170,7 +173,9 @@
                         </div>
                         <div class="modal-body">
                             <p>
-                                I first created this website in May 2020. Source code is on my <a href="https://github.com/alpargun" target="__blank">GitHub</a>.
+                                I first created this website in May 2020. The desktop icons are draggable and I am
+                                planning to make this website more interactive. Source code is on my <a
+                                    href="https://github.com/alpargun" target="__blank">GitHub</a>.
                             </p>
                         </div>
                     </div> <!-- end modal-content -->
@@ -183,7 +188,7 @@
 
             <!-- Sample 1 -->
             <div class="modal fade" id="modal-song1">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">my_song1.mp3</h5>
@@ -201,7 +206,7 @@
 
             <!-- Sample 2 -->
             <div class="modal fade" id="modal-song2">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">my_song2.mp3</h5>
@@ -222,7 +227,7 @@
             <!-- Start Image 1 Modal -->
 
             <div class="modal fade" id="modal-jpg-alp1">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">alp1.jpg</h5>
@@ -240,7 +245,7 @@
             <!-- Start Image 2 Modal-->
 
             <div class="modal fade" id="modal-jpg-alp2">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-centered modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">alp2.jpg</h5>
@@ -263,86 +268,89 @@
 
         <div class="dragZone">
 
-            <!-- PDF File -->
+            <div class="desktop-icons">
+                <!-- PDF File -->
 
-            <div class="pdf" id="cv">
-                <a href="#modal-cv">
-                    <img src="files/icons/pdf2.png">
-                </a>
-                <div class="file-name">
-                    CV_AlpArgun.pdf
+                <!-- CV -->
+                <div class="pdf" id="cv">
+                    <a href="#modal-cv">
+                        <img src="files/icons/pdf2.png">
+                    </a>
+                    <div class="file-name">
+                        CV_Argun.pdf
+                    </div>
                 </div>
-            </div>
 
-            <!-- Txt File -->
+                <!-- Txt File -->
 
-            <!-- About Me -->
-            <div class="txt" id="about-me">
-                <a href="#modal-about-me">
+                <!-- About Me -->
+                <div class="txt" id="about-me">
+                    <a href="#modal-about-me">
+                        <img src="files/icons/txt.png">
+                    </a>
+                    <div class="file-name">
+                        about_me.txt
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="txt" id="projects">
                     <img src="files/icons/txt.png">
-                </a>
-                <div class="file-name">
-                    about_me.txt
+                    <div class="file-name">
+                        projects.txt
+                    </div>
                 </div>
-            </div>
 
-            <!-- Projects -->
-            <div class="txt" id="projects">
-                <img src="files/icons/txt.png">
-                <div class="file-name">
-                    projects.txt
+                <!-- About Me -->
+                <div class="txt" id="read-me">
+                    <a href="#modal-read-me">
+                        <img src="files/icons/txt.png">
+                    </a>
+                    <div class="file-name">
+                        README.txt
+                    </div>
                 </div>
-            </div>
 
-            <!-- About Me -->
-            <div class="txt" id="read-me">
-                <a href="#modal-read-me">
-                    <img src="files/icons/txt.png">
-                </a>
-                <div class="file-name">
-                    README.txt
+                <!-- JPG Files -->
+
+                <!-- image 1 -->
+                <div class="jpg" id="jpg-alp1" alt="alp1">
+                    <a href="#modal-jpg-alp1">
+                        <img src="files/photos/alp.jpg">
+                    </a>
+                    <div class="file-name">
+                        alp1.jpg
+                    </div>
                 </div>
-            </div>
-
-            <!-- JPG Files -->
-
-            <!-- image 1 -->
-            <div class="jpg" id="jpg-alp1" alt="alp1">
-                <a href="#modal-jpg-alp1">
-                    <img src="files/photos/alp.jpg">
-                </a>
-                <div class="file-name">
-                    alp1.jpg
+                <!-- image 2 -->
+                <div class="jpg" id="jpg-alp2" alt="alp2">
+                    <a href="#modal-jpg-alp2">
+                        <img src="files/photos/alp2.jpg">
+                    </a>
+                    <div class="file-name">
+                        alp2.jpg
+                    </div>
                 </div>
-            </div>
-            <!-- image 2 -->
-            <div class="jpg" id="jpg-alp2" alt="alp2">
-                <a href="#modal-jpg-alp2">
-                    <img src="files/photos/alp2.jpg">
-                </a>
-                <div class="file-name">
-                    alp2.jpg
-                </div>
-            </div>
 
-            <!-- Audio Files -->
+                <!-- Audio Files -->
 
-            <!-- Song 1 -->
-            <div class="mp3" id="song1">
-                <a href="#modal-song1">
-                    <img src="files/icons/mp3.png">
-                </a>
-                <div class="file-name">
-                    my_song1.mp3
+                <!-- Song 1 -->
+                <div class="mp3" id="song1">
+                    <a href="#modal-song1">
+                        <img src="files/icons/mp3.png">
+                    </a>
+                    <div class="file-name">
+                        my_song1.mp3
+                    </div>
                 </div>
-            </div>
-            <!-- Song 2 -->
-            <div class="mp3" id="song2">
-                <a href="#modal-song2">
-                    <img src="files/icons/mp3.png">
-                </a>
-                <div class="file-name">
-                    my_song2.mp3
+                <!-- Song 2 -->
+                <div class="mp3" id="song2">
+                    <a href="#modal-song2">
+                        <img src="files/icons/mp3.png">
+                    </a>
+                    <div class="file-name">
+                        my_song2.mp3
+                    </div>
                 </div>
             </div>
         </div>
