@@ -103,7 +103,7 @@ html, body {
   color: white;
   text-align: center;
   font-weight: 400;
-  font-size: 100%;
+  font-size: 90%;
   margin-top: 0.25rem;
 }
 
@@ -139,13 +139,13 @@ html, body {
 }
 
 #about-me {
-    top: 10%;
-    left: 35%;
+  top: 10%;
+  left: 35%;
 }
 
 #projects {
-    top: 10%;
-    left: 65%;
+  top: 10%;
+  left: 65%;
 }
 
 #read-me {
@@ -154,8 +154,8 @@ html, body {
 }
 
 .txt img {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 /* JPG Files */
@@ -165,9 +165,9 @@ html, body {
 }
 
 .jpg img{
-    width: 100%;
-    height: 80%;
-    margin-bottom: 10%;
+  width: 100%;
+  height: 80%;
+  margin-bottom: 10%;
 }
 
 #jpg-alp1 {
